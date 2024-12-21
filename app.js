@@ -4,6 +4,19 @@ const mysql = require('../ongmanager_project/bd/conexao')
 
 const app = express();
 
-app.listen(3000, () => {
-    console.log("Servidor rodando http://localhost:3000");
+const usuarios = require('./Routers/usuarios');
+app.use('/', usuarios);
+
+
+
+
+
+
+
+
+
+// Rodar servidor
+app.listen(8080, () => {
+    console.log("Servidor rodando http://localhost:8080");
 });
+

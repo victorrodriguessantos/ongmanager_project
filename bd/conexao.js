@@ -1,12 +1,14 @@
 const mysql = require('mysql2');
 
+const env = require('dotenv').config();
+
 // Conexão com o Banco
 
 const connection = mysql.createConnection({
-    host: "127.0.0.1",
-    user:"root",
-    password: "",
-    database: "dbongmanager"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_DATABASE
 });
 
 connection.connect ( function (err) {
