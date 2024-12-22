@@ -10,6 +10,6 @@ app.use('/', usuarios);
 
 
 // Rodar servidor
-app.listen(8080, () => {
-    console.log("Servidor rodando http://localhost:8080");
+app.listen(8000, () => {
+    console.log("Servidor rodando http://localhost:8000");
 });

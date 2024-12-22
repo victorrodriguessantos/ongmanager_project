@@ -150,5 +150,31 @@ router.delete("/usuarios/:id", function (request, response, next) {
     });
 });
 
+// ROTA DO LOGIN
+
+router.post('/login', (req, res) => {
+    const { email_user, password_user } = req.body;
+
+    const query = 'SELECT * FROM tb_usuarios WHERE email_user = ?';
+
+    mysql.query(query, [email_user], async (error, results) => {
+        if (error) return res.status(500).json({ error: 'Erro no servidor' });
+
+        if (results.length === 0) {
+            return res.status(401).json({ error: 'Usuário não encontrado' });
+        }
+
+        const user = results[0];
+
+        // Verificar a senha
+        const isPasswordValid = await bcrypt.compare(password_user, user.password_user);
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: 'Senha incorreta' });
+        }
+
+        res.json({ message: 'Login bem-sucedido' });
+    });
+});
+
 
 module.exports = router;
