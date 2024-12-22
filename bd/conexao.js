@@ -19,7 +19,7 @@ connection.connect ( function (err) {
     }
 });
 
- // Testando a consulta com o banco
+ /* Testando a consulta com o banco
 
 connection.query("SELECT * FROM tb_usuarios", function (error, rows, fields) {
     if (!error) {
@@ -28,4 +28,8 @@ connection.query("SELECT * FROM tb_usuarios", function (error, rows, fields) {
         console.log("Consulta não realizada", error)
     }
 
-});
+}); 
+
+*/
+
+module.exports = connection;
