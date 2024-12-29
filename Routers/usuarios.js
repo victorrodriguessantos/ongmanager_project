@@ -65,7 +65,8 @@ router.get("/usuarios", async function(request, response, next){
 
 // EDITAR USUARIOS
 
-router.put("/usuarios/:id", async function (request, response, next) {
+// Rota para atualizar usuário por ID 
+router.put('/usuarios/:id', async function (request, response, next) {
     try {
         const { id } = request.params;
 
@@ -82,44 +83,42 @@ router.put("/usuarios/:id", async function (request, response, next) {
         }
 
         const { name_user, email_user, password_user } = value;
-
         let hashedPassword = null;
         if (password_user) {
             hashedPassword = await bcrypt.hash(password_user, 10);
         }
 
-        // Construir a query dinamicamente
         const updates = [];
         const params = [];
 
         if (name_user) {
-            updates.push("name_user = ?");
+            updates.push('name_user = ?');
             params.push(name_user);
         }
-
         if (email_user) {
-            updates.push("email_user = ?");
+            updates.push('email_user = ?');
             params.push(email_user);
         }
-
         if (hashedPassword) {
-            updates.push("password_user = ?");
+            updates.push('password_user = ?');
             params.push(hashedPassword);
         }
-
         if (updates.length === 0) {
-            return response.status(400).send("Nenhum campo para atualizar.");
+            return response.status(400).send('Nenhum campo para atualizar.');
         }
 
-        params.push(id); // Adicionar o ID no final dos parâmetros
+        params.push(id);
 
-        const query = `UPDATE tb_usuarios SET ${updates.join(", ")} WHERE id_user = ?`;
+        const query = `UPDATE tb_usuarios SET ${updates.join(', ')} WHERE id_user = ?`;
 
         mysql.query(query, params, function (error, data) {
             if (error) {
-                next(error);
+                if (error.code === 'ER_DUP_ENTRY') {
+                    return response.status(400).send('E-mail já cadastrado.');
+                }
+                return next(error);
             } else {
-                response.send("Usuário atualizado com sucesso!");
+                response.send('Usuário atualizado com sucesso!');
             }
         });
     } catch (error) {
@@ -142,6 +141,7 @@ router.delete("/usuarios/:id", function (request, response, next) {
     mysql.query(query, [id], function (error, data) {
         if (error) {
             next(error);
+
         } else if (data.affectedRows === 0) {
             response.status(404).send("Usuário não encontrado.");
         } else {
