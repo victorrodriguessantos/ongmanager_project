@@ -1,0 +1,300 @@
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, "Segoe UI", "Ubuntu", sans-serif;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3f62a6;
+    border-radius: 8px;
+}
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f6f9;
+}
+
+.menu-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+sidebar {
+  width: 240px;
+  background-color: #f4f6f9;
+  color: black;
+  padding-top: 20px;
+  position: fixed;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+sidebar ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+sidebar ul li:hover {
+  background-color: #3f62a6;
+  color: white;
+}
+
+sidebar ul li i {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.main-content {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  padding: 20px;
+  position: fixed;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-left h1 {
+  font-size: 1.5rem;
+}
+
+.header-left .menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.header-right .mode-dark:hover,
+.notifications:hover,
+.logout:hover {
+  transform: scale(1.2);
+}
+
+.header-right .user-name {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* SECTION */
+section {
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: calc(100% - 280px);
+  position: fixed;
+  margin-left: 260px;
+  height: 90vh;
+  margin-top: 90px;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-y: auto;
+
+}
+
+section h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #3f62a6;
+}
+
+/* CSS DOS USUARIOS */
+
+.container {
+  margin: 20px auto;
+  text-align: center;
+
+}
+
+.icon-user i {
+  font-size: 50px;
+}
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card h3 {
+  margin: 0 0 10px;
+  padding: 10px;
+}
+.card p {
+  margin: 5px 0;
+  color: #555;
+  border-bottom: 1px solid #000000;
+  padding: 20px;
+}
+.card button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card button.edit {
+  background-color: #4caf50;
+  color: white;
+}
+.card button.edit:hover {
+  background-color: #30ad34;
+}
+.card button.delete {
+  background-color: #f44336;
+  color: white;
+}
+.card button.delete:hover {
+  background-color: #f52314;
+}
+
+#createUser {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #3f62a6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#createUser:hover {
+  background-color: #43589d;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: left;
+}
+.modal-content h2 {
+  margin: 0 0 20px;
+}
+.modal-content label {
+  display: block;
+  margin: 10px 0 5px;
+}
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.modal-content button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-content button.save {
+  background-color: #4caf50;
+  color: white;
+}
+.modal-content button.cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Botões */
+button {
+  padding: 100px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Estilos do formulário */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 10px;
+}
+
+form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}

@@ -36,6 +36,9 @@ npm bcrypt
 ```bash
 npm install dotenv --save
 ```
+```bash
+npm install cors
+```
 
 ## Após instalar todas as dependencias basta rodar o projeto usando o comando abaixo:
 
