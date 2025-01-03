@@ -14,8 +14,7 @@ const path = require("path");
 
 
 
-// CADASTRAR USUARIOS
-
+// CADASTRAR VOLUNTARIOS
 // Configuração do multer para armazenar os arquivos
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -96,6 +95,150 @@ router.post("/voluntarios", upload.single("curriculo_voluntario"), async functio
                 });
             }
         );
+    } catch (error) {
+        console.error('Erro inesperado:', error);
+        next(error);
+    }
+});
+
+
+// LISTAR VOLUNTARIOS
+router.get("/voluntarios", async function(request, response, next){
+
+	var query = "SELECT * FROM tb_voluntarios";
+
+	mysql.query(query, function(error, data){
+
+		if(error)
+		{
+			throw error; 
+		}
+		else
+		{
+			response.json(data);
+		}
+
+	});
+
+});
+
+// EXCLUIR USUARIOS
+router.delete("/voluntario/:id", function (request, response, next) {
+    const { id } = request.params;
+
+    // Validação do ID
+    if (!id || isNaN(id)) {
+        return response.status(400).send("ID inválido.");
+    }
+
+    const query = `DELETE FROM tb_voluntarios WHERE id_voluntario = ?`;
+
+    mysql.query(query, [id], function (error, data) {
+        if (error) {
+            next(error);
+
+        } else if (data.affectedRows === 0) {
+            response.status(404).send("Voluntario não encontrado.");
+        } else {
+            response.send("Voluntario excluído com sucesso!");
+        }
+    });
+});
+
+
+// EDITAR VOLUNTARIO
+router.put("/voluntario/:id", upload.single("curriculo_voluntario"), async function (request, response, next) {
+    try {
+        const voluntarioId = request.params.id;
+
+        // Capturar os dados do corpo da requisição
+        const {
+            name_voluntario,
+            cpf_voluntario,
+            email_voluntario,
+            phone_voluntario,
+            endereco_voluntario,
+            observacao_voluntario,
+            data_nascimento,
+            preferencia_profissional
+        } = request.body;
+
+        // Verificar se o ID do voluntário foi fornecido
+        if (!voluntarioId) {
+            return response.status(400).json({ message: "O ID do voluntário é obrigatório." });
+        }
+
+        // Construir dinamicamente a consulta SQL com base nos campos enviados
+        let fieldsToUpdate = [];
+        let values = [];
+
+        if (name_voluntario) {
+            fieldsToUpdate.push("name_voluntario = ?");
+            values.push(name_voluntario);
+        }
+        if (cpf_voluntario) {
+            fieldsToUpdate.push("cpf_voluntario = ?");
+            values.push(cpf_voluntario);
+        }
+        if (email_voluntario) {
+            fieldsToUpdate.push("email_voluntario = ?");
+            values.push(email_voluntario);
+        }
+        if (phone_voluntario) {
+            fieldsToUpdate.push("phone_voluntario = ?");
+            values.push(phone_voluntario);
+        }
+        if (endereco_voluntario) {
+            fieldsToUpdate.push("endereco_voluntario = ?");
+            values.push(endereco_voluntario);
+        }
+        if (observacao_voluntario) {
+            fieldsToUpdate.push("observacao_voluntario = ?");
+            values.push(observacao_voluntario);
+        }
+        if (data_nascimento) {
+            fieldsToUpdate.push("data_nascimento = ?");
+            values.push(data_nascimento);
+        }
+        if (preferencia_profissional) {
+            fieldsToUpdate.push("preferencia_profissional = ?");
+            values.push(preferencia_profissional);
+        }
+        if (request.file) {
+            fieldsToUpdate.push("curriculo_voluntario = ?");
+            values.push(request.file.path);
+        }
+
+        // Verificar se há campos para atualizar
+        if (fieldsToUpdate.length === 0) {
+            return response.status(400).json({ message: "Nenhum campo para atualizar foi enviado." });
+        }
+
+        // Adicionar o ID do voluntário ao final dos valores
+        values.push(voluntarioId);
+
+        // Montar a consulta SQL dinamicamente
+        const query = `
+            UPDATE tb_voluntarios
+            SET ${fieldsToUpdate.join(", ")}
+            WHERE id_voluntario = ?
+        `;
+
+        // Executar a consulta no banco de dados
+        mysql.query(query, values, function (error, data) {
+            if (error) {
+                console.error('Erro ao atualizar voluntário:', error);
+                return next(error);
+            }
+
+            if (data.affectedRows === 0) {
+                return response.status(404).json({ message: "Voluntário não encontrado." });
+            }
+
+            response.status(200).json({
+                message: "Voluntário atualizado com sucesso!"
+            });
+        });
     } catch (error) {
         console.error('Erro inesperado:', error);
         next(error);
