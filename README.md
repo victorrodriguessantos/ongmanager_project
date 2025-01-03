@@ -40,6 +40,12 @@ npm install dotenv --save
 npm install cors
 ```
 
+### 5° - Instalar as dependencias de importação de arquivo:
+
+```bash
+npm install multer
+```
+
 ## Após instalar todas as dependencias basta rodar o projeto usando o comando abaixo:
 
 ```bash

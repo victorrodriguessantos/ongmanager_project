@@ -16,6 +16,8 @@ app.use(cors({
 const usuarios = require('./Routers/usuarios');
 app.use('/', usuarios);
 
+const voluntarios = require('./Routers/voluntarios');
+app.use('/', voluntarios);
 
 
 // Suas rotas
