@@ -12,6 +12,7 @@ const bcrypt = require('bcrypt');
 const multer = require("multer");
 const path = require("path");
 
+router.use('/uploads', express.static(path.join(__dirname, '../bd/uploads')));
 
 
 // CADASTRAR VOLUNTARIOS
@@ -103,7 +104,7 @@ router.post("/voluntarios", upload.single("curriculo_voluntario"), async functio
 
 
 // LISTAR VOLUNTARIOS
-router.get("/voluntarios", async function(request, response, next){
+router.get("/voluntario", async function(request, response, next){
 
 	var query = "SELECT * FROM tb_voluntarios";
 
@@ -120,6 +121,23 @@ router.get("/voluntarios", async function(request, response, next){
 
 	});
 
+});
+
+// LISTAR VOLUNTARIO PELO ID
+router.get("/voluntario/:id", async function (request, response, next) {
+    const id = request.params.id;
+
+    const query = "SELECT * FROM tb_voluntarios WHERE id_voluntario = ?";
+
+    mysql.query(query, [id], function (error, data) {
+        if (error) {
+            response.status(500).json({ error: "Erro ao buscar voluntário" });
+        } else if (data.length === 0) {
+            response.status(404).json({ error: "Voluntário não encontrado" });
+        } else {
+            response.json(data[0]); // Retorna o primeiro registro
+        }
+    });
 });
 
 // EXCLUIR USUARIOS
