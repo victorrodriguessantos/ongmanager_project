@@ -28,16 +28,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 card.className = 'voluntario-card';
                 card.innerHTML = `
                     <div class="voluntario-details">
-                        <span>${voluntario.name_voluntario}</span>
-                        <span>${voluntario.email_voluntario}</span>
-                        <span>${voluntario.phone_voluntario}</span>
-                        <span>${voluntario.preferencia_profissional}</span>
+                        <span class="name-voluntario"><i class="fi fi-rr-clipboard-user"></i> ${voluntario.name_voluntario}</span>
+                        <span><i class="fi fi-rr-envelope"></i> ${voluntario.email_voluntario}</span>
+                        <span><i class="fi fi-rr-phone-call"></i> ${voluntario.phone_voluntario}</span>
+                        <span><i class="fi fi-rs-person-cv"></i> ${voluntario.preferencia_profissional}</span>
                     </div>
                     <div class="voluntario-buttons">
-                        <button class="view-btn" data-id="${voluntario.id_voluntario}">Ver Mais</button>
-                        <button class="edit-btn" data-id="${voluntario.id_voluntario}">Editar</button>
-                        <button class="delete-btn" data-id="${voluntario.id_voluntario}">Excluir</button>
-                        <button class="download-btn" data-url="${baseURL}/uploads/${voluntario.curriculo_voluntario}">Baixar Currículo</button>
+                        <button title="Ver mais" class="view-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-ts-overview"></i></button>
+                        <button title="Editar"class="edit-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-rr-file-edit"></i></button>
+                        <button title="Excluir" class="delete-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-rr-trash"></i></button>
+                        <button title="Baixar CV" class="download-btn" data-url="${baseURL}/bd/uploads/${voluntario.curriculo_voluntario}"><i class="fi fi-rr-file-download"></i></button>
                     </div>
                 `;
                 voluntariosContainer.appendChild(card);

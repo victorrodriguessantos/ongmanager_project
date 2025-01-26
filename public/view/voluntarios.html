@@ -60,12 +60,25 @@
       <section>
         <h1>Gerenciar Voluntarios</h1>
         <div class="container">
-                <button id="novoVoluntarioBtn">Criar Novo Voluntário</button>
-                <input type="text" id="filtroNome" placeholder="Filtrar por nome">
+                <button id="novoVoluntarioBtn"><i class="fi fi-ss-users-medical"></i> Criar Novo Voluntário</button>
+                <input class="filter-voluntario" type="text" id="filtroNome" placeholder="Filtrar voluntario">
             <div id="voluntariosContainer">
                 <!-- Voluntários serão listados aqui -->
             </div>
         </div>
+
+        <!-- <div class="container">
+          <div class="esquerda">
+            <button id="novoVoluntarioBtn">Criar Novo Voluntário</button>
+          </div>
+          <div class="direita">
+            <i class="fi fi-bs-filter"></i><input type="text" id="filtroNome" placeholder="Filtrar por nome">
+          </div>
+          <div id="voluntariosContainer">
+            Voluntários serão listados aqui
+          </div>
+        </div> -->
+        
     
         <!-- Modal de Edição/Novo -->
         <div id="modal" class="modal">
