@@ -167,7 +167,11 @@ section h1 {
     grid-template-columns: 1fr 1fr 1fr 1fr auto; /* Quatro colunas para os dados e uma para os botões */
     align-items: center;
     flex-wrap: wrap;
-
+    overflow-x: auto;
+}
+.voluntario-card::-webkit-scrollbar {
+  height: 7px;
+  cursor: pointer;
 }
 
 .name-voluntario {
