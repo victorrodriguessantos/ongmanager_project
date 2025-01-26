@@ -1,6 +1,7 @@
 const express = require('express');
 
 const mysql = require('../bd/conexao');
+const fs = require('fs');
 
 const router = express.Router();
 
@@ -140,7 +141,7 @@ router.get("/api/voluntarios/:id", async function (request, response, next) {
     });
 });
 
-// EXCLUIR USUARIOS
+// EXCLUIR VOLUNTARIOS
 router.delete("/api/voluntarios/:id", function (request, response, next) {
     const { id } = request.params;
 
@@ -149,22 +150,49 @@ router.delete("/api/voluntarios/:id", function (request, response, next) {
         return response.status(400).send("ID inválido.");
     }
 
-    const query = `DELETE FROM tb_voluntarios WHERE id_voluntario = ?`;
+    // Obtenha o caminho do arquivo do voluntário a ser excluído
+    const getFileQuery = 'SELECT curriculo_voluntario FROM tb_voluntarios WHERE id_voluntario = ?';
 
-    mysql.query(query, [id], function (error, data) {
+    mysql.query(getFileQuery, [id], function (error, results) {
         if (error) {
-            next(error);
-
-        } else if (data.affectedRows === 0) {
-            response.status(404).send("Voluntario não encontrado.");
-        } else {
-            response.send("Voluntario excluído com sucesso!");
+            return next(error);
+        } else if (results.length === 0) {
+            return response.status(404).send("Voluntário não encontrado.");
         }
+
+        // Recupera o nome completo do arquivo
+        const fileName = results[0].curriculo_voluntario;
+
+        // Constrói o caminho absoluto do arquivo
+        const filePath = path.resolve(__dirname, '../', fileName);
+
+        // Imprimir o caminho do arquivo para depuração
+        console.log("Caminho do arquivo a ser excluído:", filePath);
+
+        // Exclua o voluntário do banco de dados
+        const deleteQuery = `DELETE FROM tb_voluntarios WHERE id_voluntario = ?`;
+        mysql.query(deleteQuery, [id], function (error, data) {
+            if (error) {
+                return next(error);
+            } else if (data.affectedRows === 0) {
+                return response.status(404).send("Voluntário não encontrado.");
+            }
+
+            // Exclua o arquivo do servidor
+            fs.unlink(filePath, (err) => {
+                if (err) {
+                    console.error("Erro ao tentar excluir o arquivo:", err);
+                    return response.status(500).send("Erro ao tentar excluir o arquivo.");
+                }
+
+                response.send("Voluntário excluído com sucesso!");
+            });
+        });
     });
 });
 
 
-// EDITAR VOLUNTARIO
+// EDITAR VOLUNTARIOS
 router.put("/api/voluntarios/:id", upload.single("curriculo_voluntario"), async function (request, response, next) {
     try {
         const voluntarioId = request.params.id;
