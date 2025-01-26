@@ -32,7 +32,6 @@ npm install --save mysql2
 ```bash
 npm install bcrypt
 ```
-
 ```bash
 npm install dotenv --save
 ```
@@ -40,10 +39,13 @@ npm install dotenv --save
 npm install cors
 ```
 
-### 5° - Instalar as dependencias de importação de arquivo:
+### 5° - Instalar as dependencias de importação e manipulação de arquivo:
 
 ```bash
 npm install multer
+```
+```bash
+npm install fs
 ```
 
 ## Após instalar todas as dependencias basta rodar o projeto usando o comando abaixo:
