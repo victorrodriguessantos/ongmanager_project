@@ -30,7 +30,7 @@ npm install --save mysql2
 ### 4° - Instalar as dependencias de segurança:
 
 ```bash
-npm bcrypt
+npm install bcrypt
 ```
 
 ```bash
@@ -58,3 +58,6 @@ node --watch app.js
 node app.js
 ```
 
+## Observação
+
+### O codigo do Banco de Dados está localizado no Trello, após rodar o banco de dados ai executa o projeto para não gerar erro ap iniciar o servidor.

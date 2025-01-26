@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <button title="Ver mais" class="view-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-ts-overview"></i></button>
                         <button title="Editar" class="edit-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-rr-file-edit"></i></button>
                         <button title="Excluir" class="delete-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-rr-trash"></i></button>
-                        <button title="Baixar CV" class="download-btn" data-url="${baseURL}/bd/uploads/${voluntario.curriculo_voluntario}"><i class="fi fi-rr-file-download"></i></button>
+                        <button title="Baixar CV" class="download-btn" data-url="http://localhost:8000/${voluntario.curriculo_voluntario}"><i class="fi fi-rr-file-download"></i></button>
                     </div>
                 `;
                 voluntariosContainer.appendChild(card);
@@ -59,10 +59,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
-  
+
         document.querySelectorAll('.download-btn').forEach(button => {
-            button.addEventListener('click', (e) => window.open(e.target.dataset.url));
-        });
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = e.currentTarget.dataset.url;
+                const a = document.createElement('a');
+                a.href = url;
+                a.target = '_blank';
+                document.body.appendChild(a); // Adiciona o elemento ao DOM
+                a.click();
+                document.body.removeChild(a); // Remove o elemento do DOM
+            });
+        });        
+        
     };
   
     const deleteVoluntario = async (id) => {
