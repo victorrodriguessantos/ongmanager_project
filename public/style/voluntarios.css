@@ -157,7 +157,6 @@ section h1 {
 
 }
 
-
 .voluntario-card {
     height: 100px;
     border-radius: 10px;
@@ -278,7 +277,7 @@ section h1 {
     margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
 }
 
 .close {
@@ -293,4 +292,52 @@ section h1 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.form-voluntario {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    padding: 15px;
+    font-size: 16px;
+    width: 100%;
+    align-content: center;
+}
+
+.form-voluntario input {
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0 2px 4px #3f62a6;
+}
+
+.btn-voluntario-editcreate {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #3f62a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-voluntario-editcreate:hover {
+    background-color: #43589d;
+}
+
+.voluntario-info {
+    display: flex;
+    flex-direction: column; /* Organiza os itens verticalmente */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    gap: 10px; /* Espaçamento entre os itens */
+    padding: 15px; /* Adiciona espaçamento interno ao contêiner */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    line-height: 1.5; /* Aumenta o espaçamento entre linhas */
+}
+
+.voluntario-info div {
+    background-color: #f9f9f9; /* Fundo claro para destacar os itens */
+    padding: 8px 12px; /* Espaçamento interno de cada item */
+    border-radius: 5px; /* Cantos arredondados */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }

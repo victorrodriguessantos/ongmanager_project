@@ -66,26 +66,13 @@
                 <!-- Voluntários serão listados aqui -->
             </div>
         </div>
-
-        <!-- <div class="container">
-          <div class="esquerda">
-            <button id="novoVoluntarioBtn">Criar Novo Voluntário</button>
-          </div>
-          <div class="direita">
-            <i class="fi fi-bs-filter"></i><input type="text" id="filtroNome" placeholder="Filtrar por nome">
-          </div>
-          <div id="voluntariosContainer">
-            Voluntários serão listados aqui
-          </div>
-        </div> -->
         
-    
         <!-- Modal de Edição/Novo -->
         <div id="modal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeModal">&times;</span>
                 <h2 id="modalTitle"></h2>
-                <form id="voluntarioForm">
+                <form id="voluntarioForm" class="form-voluntario">
                     <input type="hidden" id="voluntarioId">
                     <label for="name_voluntario">Nome:</label>
                     <input type="text" id="name_voluntario" name="name_voluntario" required>
@@ -105,7 +92,7 @@
                     <input type="text" id="preferencia_profissional" name="preferencia_profissional">
                     <label for="curriculo_voluntario">Currículo:</label>
                     <input type="file" id="curriculo_voluntario" name="curriculo_voluntario">
-                    <button type="submit">Salvar</button>
+                    <button type="submit" class="btn-voluntario-editcreate">Salvar</button>
                 </form>
             </div>
         </div>

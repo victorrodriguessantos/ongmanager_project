@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('observacao_voluntario').value = voluntario.observacao_voluntario;
         document.getElementById('data_nascimento').value = voluntario.data_nascimento;
         document.getElementById('preferencia_profissional').value = voluntario.preferencia_profissional;
+        
         modal.style.display = 'block';
     };
   
@@ -107,17 +108,19 @@ document.addEventListener('DOMContentLoaded', function () {
   
     const openViewModal = (voluntario) => {
         voluntarioInfo.innerHTML = `
-            <p><strong>Nome:</strong> ${voluntario.name_voluntario}</p>
-            <p><strong>CPF:</strong> ${voluntario.cpf_voluntario}</p>
-            <p><strong>Email:</strong> ${voluntario.email_voluntario}</p>
-            <p><strong>Telefone:</strong> ${voluntario.phone_voluntario}</p>
-            <p><strong>Endereço:</strong> ${voluntario.endereco_voluntario}</p>
-            <p><strong>Observação:</strong> ${voluntario.observacao_voluntario}</p>
-            <p><strong>Data de Nascimento:</strong> ${voluntario.data_nascimento}</p>
-            <p><strong>Preferência Profissional:</strong> ${voluntario.preferencia_profissional}</p>
+            <div class="voluntario-info">
+                <div><strong>Nome:</strong> ${voluntario.name_voluntario}</div>
+                <div><strong>CPF:</strong> ${voluntario.cpf_voluntario}</div>
+                <div><strong>Email:</strong> ${voluntario.email_voluntario}</div>
+                <div><strong>Telefone:</strong> ${voluntario.phone_voluntario}</div>
+                <div><strong>Endereço:</strong> ${voluntario.endereco_voluntario}</div>
+                <div><strong>Observação:</strong> ${voluntario.observacao_voluntario}</div>
+                <div><strong>Data de Nascimento:</strong> ${voluntario.data_nascimento}</div>
+                <div><strong>Preferência Profissional:</strong> ${voluntario.preferencia_profissional}</div>
+            </div>
         `;
         viewModal.style.display = 'block';
-    };
+    };    
   
     const closeViewModalFunc = () => {
         viewModal.style.display = 'none';
