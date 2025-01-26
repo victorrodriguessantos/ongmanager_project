@@ -1,0 +1,208 @@
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css");
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, "Segoe UI", "Ubuntu", sans-serif;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3f62a6;
+    border-radius: 8px;
+}
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f6f9;
+}
+
+.menu-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+sidebar {
+  width: 240px;
+  background-color: #f4f6f9;
+  color: black;
+  padding-top: 20px;
+  position: fixed;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+sidebar ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+sidebar ul li:hover {
+  background-color: #3f62a6;
+  color: white;
+}
+
+sidebar ul li i {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.main-content {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  padding: 20px;
+  position: fixed;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-left h1 {
+  font-size: 1.5rem;
+}
+
+.header-left .menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.header-right .mode-dark:hover,
+.notifications:hover,
+.logout:hover {
+  transform: scale(1.2);
+}
+
+.header-right .user-name {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+
+
+/* SECTION */
+section {
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: calc(100% - 280px);
+    position: fixed;
+    margin-left: 260px;
+    height: 90vh;
+    margin-top: 90px;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y: auto;
+  
+}
+  
+section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #3f62a6;
+}
+
+
+
+.voluntario-card {
+    height: 100px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto; /* Quatro colunas para os dados e uma para os botões */
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.voluntario-details {
+    display: contents; /* Permite o uso do grid nas crianças */
+}
+
+.voluntario-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#novoVoluntarioBtn {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #3f62a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #novoVoluntarioBtn:hover {
+    background-color: #43589d;
+  }
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
