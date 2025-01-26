@@ -1,6 +1,6 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
-    const baseURL = 'http://localhost:8000';
+    const baseURL = 'http://localhost:8000/api';
     const voluntariosContainer = document.getElementById('voluntariosContainer');
     const filtroNome = document.getElementById('filtroNome');
     const modal = document.getElementById('modal');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const voluntarioInfo = document.getElementById('voluntarioInfo');
   
     const fetchVoluntarios = async () => {
-        const response = await fetch(`${baseURL}/voluntario`);
+        const response = await fetch(`${baseURL}/voluntarios`);
         const voluntarios = await response.json();
         displayVoluntarios(voluntarios);
     };
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <div class="voluntario-buttons">
                         <button title="Ver mais" class="view-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-ts-overview"></i></button>
-                        <button title="Editar"class="edit-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-rr-file-edit"></i></button>
+                        <button title="Editar" class="edit-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-rr-file-edit"></i></button>
                         <button title="Excluir" class="delete-btn" data-id="${voluntario.id_voluntario}"><i class="fi fi-rr-trash"></i></button>
                         <button title="Baixar CV" class="download-btn" data-url="${baseURL}/bd/uploads/${voluntario.curriculo_voluntario}"><i class="fi fi-rr-file-download"></i></button>
                     </div>
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   
     const deleteVoluntario = async (id) => {
-        await fetch(`${baseURL}/voluntario/${id}`, { method: 'DELETE' });
+        await fetch(`${baseURL}/voluntarios/${id}`, { method: 'DELETE' });
         fetchVoluntarios();
     };
   
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const id = voluntarioId.value;
   
         if (id) {
-            await fetch(`${baseURL}/voluntario/${id}`, {
+            await fetch(`${baseURL}/voluntarios/${id}`, {
                 method: 'PUT',
                 body: data
             });
@@ -151,12 +151,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // Navegação
 
 document.getElementById("dashboard").addEventListener("click", function() { 
-    window.location.href = "/view/dashboard.html"; }); 
+    window.location.href = "/dashboard"; }); 
   document.getElementById("doacoes").addEventListener("click", function() { 
-    window.location.href = "/view/doacoes.html"; }); 
+    window.location.href = "/doacoes"; }); 
   document.getElementById("projetos").addEventListener("click", function() { 
-    window.location.href = "/view/projetos.html"; }); 
+    window.location.href = "/projetos"; }); 
   document.getElementById("voluntarios").addEventListener("click", function() { 
-    window.location.href = "/view/voluntarios.html"; }); 
+    window.location.href = "/voluntarios"; }); 
   document.getElementById("usuarios").addEventListener("click", function() { 
-    window.location.href = "/view/usuarios.html"; });
+    window.location.href = "/usuarios"; });

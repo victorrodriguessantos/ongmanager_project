@@ -40,7 +40,7 @@ const fileFilter = (req, file, cb) => {
 // Inicializando o multer
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 
-router.post("/voluntarios", upload.single("curriculo_voluntario"), async function (request, response, next) {
+router.post("/api/voluntarios", upload.single("curriculo_voluntario"), async function (request, response, next) {
     try {
         // Capturar os dados do corpo da requisição
         const {
@@ -104,7 +104,7 @@ router.post("/voluntarios", upload.single("curriculo_voluntario"), async functio
 
 
 // LISTAR VOLUNTARIOS
-router.get("/voluntario", async function(request, response, next){
+router.get("/api/voluntarios", async function(request, response, next){
 
 	var query = "SELECT * FROM tb_voluntarios";
 
@@ -124,7 +124,7 @@ router.get("/voluntario", async function(request, response, next){
 });
 
 // LISTAR VOLUNTARIO PELO ID
-router.get("/voluntario/:id", async function (request, response, next) {
+router.get("/api/voluntarios/:id", async function (request, response, next) {
     const id = request.params.id;
 
     const query = "SELECT * FROM tb_voluntarios WHERE id_voluntario = ?";
@@ -141,7 +141,7 @@ router.get("/voluntario/:id", async function (request, response, next) {
 });
 
 // EXCLUIR USUARIOS
-router.delete("/voluntario/:id", function (request, response, next) {
+router.delete("/api/voluntarios/:id", function (request, response, next) {
     const { id } = request.params;
 
     // Validação do ID
@@ -165,7 +165,7 @@ router.delete("/voluntario/:id", function (request, response, next) {
 
 
 // EDITAR VOLUNTARIO
-router.put("/voluntario/:id", upload.single("curriculo_voluntario"), async function (request, response, next) {
+router.put("/api/voluntarios/:id", upload.single("curriculo_voluntario"), async function (request, response, next) {
     try {
         const voluntarioId = request.params.id;
 

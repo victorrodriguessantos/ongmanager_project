@@ -17,15 +17,13 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
         if (response.ok) {
             // Redirecionar para a página de usuários
-            window.location.href = '/view/usuarios.html';
+            window.location.href = '/usuarios';
         } else {
             // Exibir erro
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error').textContent = result.error;
+            alert("Usuario ou Senha invalida, por favor tente novamente.");
+
         }
     } catch (err) {
         console.error('Erro:', err);
-        document.getElementById('error').style.display = 'block';
-        document.getElementById('error').textContent = 'Erro no servidor. Tente novamente mais tarde.';
     }
 });

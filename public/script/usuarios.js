@@ -1,4 +1,4 @@
-const apiBaseUrl = "http://localhost:8000/usuarios"; // Altere a porta se necessário
+const apiBaseUrl = "http://localhost:8000/api/usuarios"; // Altere a porta se necessário
 
 // Selecionar elementos
 const usersContainer = document.getElementById("usersContainer");
@@ -135,12 +135,12 @@ async function deleteUser(userId) {
 // Navegação
 
 document.getElementById("dashboard").addEventListener("click", function() { 
-  window.location.href = "/view/dashboard.html"; }); 
+  window.location.href = "/dashboard"; }); 
 document.getElementById("doacoes").addEventListener("click", function() { 
-  window.location.href = "/view/doacoes.html"; }); 
+  window.location.href = "/doacoes"; }); 
 document.getElementById("projetos").addEventListener("click", function() { 
-  window.location.href = "/view/projetos.html"; }); 
+  window.location.href = "/projetos"; }); 
 document.getElementById("voluntarios").addEventListener("click", function() { 
-  window.location.href = "/view/voluntarios.html"; }); 
+  window.location.href = "/voluntarios"; }); 
 document.getElementById("usuarios").addEventListener("click", function() { 
-  window.location.href = "/view/usuarios.html"; });
+  window.location.href = "/usuarios"; });

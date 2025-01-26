@@ -12,7 +12,7 @@ const bcrypt = require('bcrypt');
 
 // CADASTRAR USUARIOS
 
-router.post("/usuarios", async function (request, response, next) {
+router.post("/api/usuarios", async function (request, response, next) {
     try {
         // Capturar os dados do corpo da requisição
         const { name_user, email_user, password_user } = request.body;
@@ -44,7 +44,7 @@ router.post("/usuarios", async function (request, response, next) {
 
 // LISTAR USUARIOS
 
-router.get("/usuarios", async function(request, response, next){
+router.get("/api/usuarios", async function(request, response, next){
 
 	var query = "SELECT * FROM tb_usuarios";
 
@@ -66,7 +66,7 @@ router.get("/usuarios", async function(request, response, next){
 // EDITAR USUARIOS
 
 // Rota para atualizar usuário por ID 
-router.put('/usuarios/:id', async function (request, response, next) {
+router.put('/api/usuarios/:id', async function (request, response, next) {
     try {
         const { id } = request.params;
 
@@ -128,7 +128,7 @@ router.put('/usuarios/:id', async function (request, response, next) {
 
 // EXCLUIR USUARIOS
 
-router.delete("/usuarios/:id", function (request, response, next) {
+router.delete("/api/usuarios/:id", function (request, response, next) {
     const { id } = request.params;
 
     // Validação do ID
