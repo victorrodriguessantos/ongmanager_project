@@ -26,6 +26,9 @@ app.use('/', usuarios);
 const voluntarios = require('./Routers/voluntarios');
 app.use('/', voluntarios);
 
+const projetos = require('./Routers/projetos');
+app.use('/', projetos);
+
 
 // Suas rotas
 

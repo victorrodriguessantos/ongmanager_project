@@ -116,7 +116,7 @@ header {
 section {
   flex-direction: column;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #f3f8fd;
   width: calc(100% - 280px);
   position: fixed;
   margin-left: 260px;

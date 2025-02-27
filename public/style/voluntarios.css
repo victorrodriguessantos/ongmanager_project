@@ -121,7 +121,7 @@ header {
 section {
     flex-direction: column;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: #f3f8fd;
     width: calc(100% - 280px);
     position: fixed;
     margin-left: 260px;
@@ -140,12 +140,12 @@ section h1 {
 }
   
 .filter-voluntario {
-    width: 500px;
+    width: 400px;
     height: 40px;
     border: none;
     border-radius: 8px;
     outline: none;
-    box-shadow: 0 2px 4px #3f62a6;
+    box-shadow: 0 1px 2px #3f62a6;
     margin-left: 40px;
     font-size: large;
     font: smaller;
@@ -160,7 +160,7 @@ section h1 {
 .voluntario-card {
     height: 100px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px #3f62a6;
+    box-shadow: 0 1px 4px #3f62a6;
     padding: 10px;
     margin: 10px 0;
     display: grid;

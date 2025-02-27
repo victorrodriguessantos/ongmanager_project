@@ -19,6 +19,7 @@ connection.connect ( function (err) {
     }
 });
 
+
  /* Testando a consulta com o banco
 
 connection.query("SELECT * FROM tb_usuarios", function (error, rows, fields) {

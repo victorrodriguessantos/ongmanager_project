@@ -1,7 +1,7 @@
 {
   "name": "ongmanager_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Instalação para rodar o projeto",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +21,14 @@
     "fs": "^0.0.1-security",
     "joi": "^17.13.3",
     "multer": "^1.4.5-lts.1",
-    "mysql2": "^3.11.5"
-  }
+    "mysql2": "^3.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorrodriguessantos/ongmanager_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/victorrodriguessantos/ongmanager_project/issues"
+  },
+  "homepage": "https://github.com/victorrodriguessantos/ongmanager_project#readme"
 }
