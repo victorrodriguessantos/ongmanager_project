@@ -278,10 +278,10 @@ section h1 {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; 
+    margin: 60px auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 50%;
+    width: 30%;
     border-radius: 8px;
 }
 
@@ -314,7 +314,7 @@ section h1 {
     border: none;
     border-radius: 8px;
     outline: none;
-    box-shadow: 0 2px 4px #3f62a6;
+    box-shadow: 0 2px 4px #888;
 }
 
 .btn-voluntario-editcreate {
@@ -345,4 +345,29 @@ section h1 {
     padding: 8px 12px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 1055px) {
+  .voluntario-details {
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .voluntario-card {
+    height: 200px;
+    width: 65dvh;
+    justify-content: space-between;
+  }
+  
+  .voluntario-buttons {
+    position: absolute;
+    display: flex;
+    margin-left: 50%;
+
+  }
+
+  .filter-voluntario {
+    width: 50%;
+  }
 }
