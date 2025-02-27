@@ -60,6 +60,9 @@ app.get('/voluntarios', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'view', 'voluntarios.html'));
 });
 
+app.get('/projetos', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'view', 'projetos.html'));
+});
 
 
 // Rodar servidor
