@@ -30,6 +30,12 @@ const projetos = require('./Routers/projetos');
 app.use('/', projetos);
 
 
+// Middleware de tratamento de erros
+app.use((err, req, res, next) => {
+    console.error('Erro detectado no servidor:', err);
+    res.status(500).json({ error: 'Ocorreu um erro interno no servidor.' });
+});
+
 // Suas rotas
 
 app.post('/upload', upload.single('curriculo_voluntario'), (req, res) => {

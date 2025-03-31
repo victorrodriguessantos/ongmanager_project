@@ -115,8 +115,6 @@ header {
   color: #666;
 }
 
-
-
 /* SECTION */
 section {
     flex-direction: column;
@@ -124,9 +122,8 @@ section {
     background-color: #f3f8fd;
     width: calc(100% - 280px);
     position: fixed;
-    margin-left: 260px;
     height: 90vh;
-    margin-top: 90px;
+    margin-top: 15px;
     padding: 20px;
     border-radius: 8px;
     overflow-y: auto;
@@ -157,52 +154,47 @@ section h1 {
 
 }
 
-.voluntario-card {
-    height: 100px;
-    border-radius: 10px;
-    box-shadow: 0 1px 4px #3f62a6;
-    padding: 10px;
-    margin: 10px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr auto; /* Quatro colunas para os dados e uma para os botões */
-    align-items: center;
-    flex-wrap: wrap;
-    overflow-x: auto;
-}
-.voluntario-card::-webkit-scrollbar {
-  height: 7px;
-  cursor: pointer;
-}
-
-.name-voluntario {
-    color: #43589d;
-    font-weight: bold;
-}
-
-.voluntario-details {
-    display: contents; /* Permite o uso do grid */
-}
-
-.voluntario-buttons {
-    display: flex;
-    gap: 10px;
-    font-size: 100px;
-    color: #43589d;
-}
-
-.view-btn {
-    border: 1px solid #804cd4;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    color: #000;
-    font-size: 15px;
+#ProjetoBtn {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #3f62a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
-.view-btn:hover {
-    background-color: #804cd4;
-    color: #fff;
+
+#ProjetoBtn:hover {
+    background-color: #43589d;
+}
+
+
+.projeto-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+    float: left;
+    width: 25%;
+}
+
+.projeto-card div {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #43589d;
+}
+
+.name-projeto {
+    display: flex;
+    color: #43589d;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .edit-btn {
@@ -214,6 +206,8 @@ section h1 {
     color: #000;
     font-size: 15px;
     cursor: pointer;
+    margin-top: 10px;
+    margin-left: 37%;
 }
 .edit-btn:hover {
     background-color: #30ad34;
@@ -229,39 +223,13 @@ section h1 {
     color: #000;
     font-size: 15px;
     cursor: pointer;
+    margin-top: 10px;
 }
 .delete-btn:hover {
     background-color: #f52314;
     color: #fff;
 }
 
-.download-btn {
-    border: 1px solid #646464;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    color: #000;
-    font-size: 15px;
-    cursor: pointer;
-}
-.download-btn:hover {
-    background-color: #646464;
-    color: #fff;
-}
-
-#novoVoluntarioBtn {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #3f62a6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  #novoVoluntarioBtn:hover {
-    background-color: #43589d;
-  }
 
 .modal {
     display: none; 
@@ -297,77 +265,4 @@ section h1 {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-.form-voluntario {
-    display: flex;
-    flex-direction: column; 
-    gap: 10px; 
-    padding: 15px;
-    font-size: 16px;
-    width: 100%;
-    align-content: center;
-}
-
-.form-voluntario input {
-    height: 30px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    box-shadow: 0 2px 4px #888;
-}
-
-.btn-voluntario-editcreate {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #3f62a6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.btn-voluntario-editcreate:hover {
-    background-color: #43589d;
-}
-
-.voluntario-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 15px;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.voluntario-info div {
-    background-color: #f9f9f9;
-    padding: 8px 12px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-@media only screen and (max-width: 1055px) {
-  .voluntario-details {
-    display:flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .voluntario-card {
-    height: 200px;
-    width: 65dvh;
-    justify-content: space-between;
-  }
-  
-  .voluntario-buttons {
-    position: absolute;
-    display: flex;
-    margin-left: 50%;
-
-  }
-
-  .filter-voluntario {
-    width: 50%;
-  }
 }
