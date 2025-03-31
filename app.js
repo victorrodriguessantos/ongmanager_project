@@ -70,7 +70,6 @@ app.get('/projetos', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'view', 'projetos.html'));
 });
 
-
 // Rodar servidor
 app.listen(8000, () => {
     console.log("Servidor rodando http://localhost:8000/");
