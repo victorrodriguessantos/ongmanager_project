@@ -310,11 +310,17 @@ section h1 {
 }
 
 .form-voluntario input {
-    height: 30px;
+    background-color: #f3f8fd;
+    height: 40px;
     border: none;
     border-radius: 8px;
+    padding: 10px;
     outline: none;
-    box-shadow: 0 2px 4px #888;
+    box-shadow: 0 1px 2px #3f62a6;
+}
+.form-voluntario input[file] {
+  background-color: #000;
+  color: #000;
 }
 
 .btn-voluntario-editcreate {

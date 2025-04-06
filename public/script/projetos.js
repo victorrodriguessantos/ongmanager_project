@@ -36,10 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const card = document.createElement('div');
             card.className = 'projeto-card';
+
             card.innerHTML = `
                 <div class="projeto-details">
                     <span class="name-projeto"><i class="fi fi-bs-diagram-project"></i> ${projeto.name_projeto}</span>
                     <hr>
+                    <br>
                     <span><strong>Descrição:</strong> ${projeto.descricao}</span>
                     <br>
                     <span><strong>Meta:</strong> R$ ${parseFloat(projeto.meta_arrecadacao).toFixed(2).replace('.', ',')}</span>
@@ -47,10 +49,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     <br>
                     <span><strong>Status:</strong> ${projeto.status_projeto}</span>
                     <hr>
-                    <button class="edit-btn" data-id="${projeto.id_projeto}"><i class="fi fi-rr-file-edit"></i></button>
+                    <button class="edit-btn"  data-id="${projeto.id_projeto}"><i class="fi fi-rr-file-edit"></i></button>
                     <button class="delete-btn" data-id="${projeto.id_projeto}"><i class="fi fi-rr-trash"></i></button>
                 </div>
             `;
+
             projetosContainer.appendChild(card);
         });
 
