@@ -6,7 +6,6 @@ const path = require('path');
 const multer = require('multer');
 const upload = multer({ dest: 'bd/uploads/' });
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -28,6 +27,9 @@ app.use('/', voluntarios);
 
 const projetos = require('./Routers/projetos');
 app.use('/', projetos);
+
+const doacoes = require('./Routers/doacoes');
+app.use('/', doacoes);
 
 
 // Middleware de tratamento de erros
@@ -68,6 +70,10 @@ app.get('/voluntarios', (req, res) => {
 
 app.get('/projetos', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'view', 'projetos.html'));
+});
+
+app.get('/doacoes', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'view', 'doacoes.html'));
 });
 
 // Rodar servidor
