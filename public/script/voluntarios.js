@@ -44,21 +44,30 @@ document.addEventListener('DOMContentLoaded', function () {
             });
   
         document.querySelectorAll('.view-btn').forEach(button => {
-            button.addEventListener('click', (e) => openViewModal(voluntarios.find(vol => vol.id_voluntario == e.target.dataset.id)));
-        });
-  
-        document.querySelectorAll('.edit-btn').forEach(button => {
-            button.addEventListener('click', (e) => openEditModal(voluntarios.find(vol => vol.id_voluntario == e.target.dataset.id)));
-        });
-  
-        document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', (e) => {
-                const confirmDelete = confirm('Você tem certeza que deseja excluir este voluntário?');
-                if (confirmDelete) {
-                    deleteVoluntario(e.target.dataset.id);
-                }
+                const id = e.currentTarget.dataset.id;
+                const voluntario = voluntarios.find(vol => vol.id_voluntario == id);
+                openViewModal(voluntario);
             });
         });
+            
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const id = e.currentTarget.dataset.id;
+                const voluntario = voluntarios.find(vol => vol.id_voluntario == id);
+                openEditModal(voluntario);
+            });
+        });
+            
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const id = e.currentTarget.dataset.id;
+                const confirmDelete = confirm('Você tem certeza que deseja excluir este voluntário?');
+                if (confirmDelete) {
+                        deleteVoluntario(id);
+                }
+            });
+        });            
 
         document.querySelectorAll('.download-btn').forEach(button => {
             button.addEventListener('click', (e) => {

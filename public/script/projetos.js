@@ -49,21 +49,28 @@ document.addEventListener('DOMContentLoaded', function () {
                     <br>
                     <span><strong>Status:</strong> ${projeto.status_projeto}</span>
                     <hr>
-                    <button class="edit-btn"  data-id="${projeto.id_projeto}"><i class="fi fi-rr-file-edit"></i></button>
-                    <button class="delete-btn" data-id="${projeto.id_projeto}"><i class="fi fi-rr-trash"></i></button>
+                    <button class="edit-btn" title="Editar" data-id="${projeto.id_projeto}"><i class="fi fi-rr-file-edit"></i></button>
+                    <button class="delete-btn" title="Excluir" data-id="${projeto.id_projeto}"><i class="fi fi-rr-trash"></i></button>
                 </div>
             `;
 
             projetosContainer.appendChild(card);
         });
-
+          
     // Adicionar eventos aos botões
     document.querySelectorAll('.edit-btn').forEach(button => {
-        button.addEventListener('click', (e) => openEditModal(projetos.find(proj => proj.id_projeto == e.target.dataset.id)));
+        button.addEventListener('click', (e) => {
+            const id = e.currentTarget.dataset.id;
+            const projeto = projetos.find(proj => proj.id_projeto == id);
+            openEditModal(projeto);
+          });
     });
 
     document.querySelectorAll('.delete-btn').forEach(button => {
-        button.addEventListener('click', (e) => deleteProjeto(e.target.dataset.id));
+        button.addEventListener('click', (e) => {
+            const id = e.currentTarget.dataset.id;
+            deleteProjeto(id);
+          });          
     });
 };
 
