@@ -19,7 +19,7 @@ const upload = multer({ storage });
 
 // Cadastrar doação
 router.post('/api/doacoes', upload.single('comprovante'), (req, res) => {
-  const { doador, data_doacao, tipo_doacao, valor_doacao, id_projeto } = req.body;
+  const { doador, data_doacao, tipo_doacao, valor_doacao, id_projeto, observacao } = req.body;
   const comprovante = req.file ? req.file.filename : null;
 
   if (tipo_doacao === 'dinheiro' && !id_projeto) {
@@ -27,13 +27,13 @@ router.post('/api/doacoes', upload.single('comprovante'), (req, res) => {
   }
 
   const query = `
-    INSERT INTO tb_doacoes (doador, data_doacao, tipo_doacao, valor_doacao, comprovante, id_projeto)
-    VALUES (?, ?, ?, ?, ?, ?)
+    INSERT INTO tb_doacoes (doador, data_doacao, tipo_doacao, valor_doacao, comprovante, id_projeto, observacao)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
 
   mysql.query(
     query,
-    [doador, data_doacao, tipo_doacao, valor_doacao || null, comprovante, id_projeto || null],
+    [doador, data_doacao, tipo_doacao, valor_doacao || null, comprovante, id_projeto || null, observacao || null],
     (err, result) => {
       if (err) return res.status(500).json({ error: err });
 
@@ -75,18 +75,18 @@ router.get('/api/doacoes/:id', (req, res) => {
 // Atualizar doação
 router.put('/api/doacoes/:id', upload.single('comprovante'), (req, res) => {
   const { id } = req.params;
-  const { doador, data_doacao, tipo_doacao, valor_doacao, id_projeto } = req.body;
+  const { doador, data_doacao, tipo_doacao, valor_doacao, id_projeto, observacao } = req.body;
   const comprovante = req.file ? req.file.filename : null;
 
   const query = `
     UPDATE tb_doacoes SET
-    doador = ?, data_doacao = ?, tipo_doacao = ?, valor_doacao = ?, comprovante = ?, id_projeto = ?
+    doador = ?, data_doacao = ?, tipo_doacao = ?, valor_doacao = ?, comprovante = ?, id_projeto = ?, observacao = ?
     WHERE id_doacoes = ?
   `;
 
   mysql.query(
     query,
-    [doador, data_doacao, tipo_doacao, valor_doacao || null, comprovante, id_projeto || null, id],
+    [doador, data_doacao, tipo_doacao, valor_doacao || null, comprovante, id_projeto || null, observacao || null, id],
     (err) => {
       if (err) return res.status(500).json({ error: err });
       res.json({ message: 'Doação atualizada com sucesso.' });

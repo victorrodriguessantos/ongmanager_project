@@ -206,7 +206,7 @@ table th {
 }
 
 table td {
-    height: 40px;
+    max-height: 40px;
     padding: 10px;
     border: 1px solid #ccc;
 }
@@ -221,9 +221,7 @@ tr:nth-child(odd) {
 
 /* Botões Acão */
 .acoes {
-    width: 10%;
-    gap: 50px;
-    text-align: center;
+    width: 15%;
 }
 
 .edit-btn {
