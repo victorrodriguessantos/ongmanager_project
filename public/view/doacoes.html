@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style/doacoes.css" />
+  <title>ONGManager</title>
+</head>
+
+<body>
+  <main>
+    <div class="menu-container">
+      <sidebar>
+        <ul>
+          <li id="dashboard">Dashboard <i class="fi fi-rr-apps"></i></li>
+          <li id="doacoes" class="active">Doações <i class="fi fi-rr-growth-chart-invest"></i></li>
+          <li id="projetos">Projetos <i class="fi fi-rr-calendar"></i></li>
+          <li id="voluntarios">Voluntários <i class="fi fi-rs-builder"></i></li>
+          <li id="usuarios">Usuários <i class="fi fi-ss-users-alt"></i></li>
+        </ul>
+      </sidebar>
+
+      <div class="main-content">
+        <header>
+          <div class="header-left">
+            <h1>ONGManager</h1>
+          </div>
+
+          <div class="header-right">
+            <div class="mode-dark">
+              <i class="fi fi-ss-moon"></i>
+            </div>
+            <div class="notifications">
+              <i class="fi fi-rr-bell"></i>
+            </div>
+            <div class="logout">
+              <i class="fi fi-ss-leave"></i>
+            </div>
+            <span class="user-name">Victor Rodrigues</span>
+          </div>
+        </header>
+      </div>
+    </div>
+
+          <section>
+
+            <div class="container">
+                <h1>Gerenciar Doações</h1>
+                <div class="top-actions">
+                  <button id="novaDoacaoBtn"><i class="fi fi-rr-growth-chart-invest"></i> Adicionar Doação</button>
+                  <input type="text" id="filtroDoador" placeholder="Buscar por Doador" />
+                  <input type="date" id="filtroData" />
+                </div>
+            </div>
+
+          <!-- Tabela de Doações -->
+          <table>
+            <thead>
+              <tr>
+                <th>Doador</th>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Observação</th>
+                <th class="acoes">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="doacoesContainer"></tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de Cadastro/Edição de Doações -->
+  <div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span id="modalCloseBtn" class="close">&times;</span>
+      <h2 id="modalTitle">Nova Doação</h2>
+      <form id="modalForm">
+        <input type="hidden" id="doacaoId" />
+        <label for="doador">Doador:</label>
+        <input type="text" id="doador" required />
+        
+        <label for="data_doacao">Data:</label>
+        <input type="date" id="data_doacao" required />
+        
+        <label for="tipo_doacao">Tipo:</label>
+        <select id="tipo_doacao" required>
+          <option value="dinheiro">Dinheiro</option>
+          <option value="bens">Bens</option>
+        </select>
+
+        <label for="valor_doacao">Valor:</label>
+        <input type="number" id="valor_doacao" />
+
+        <label for="id_projeto">Projeto:</label>
+        <select id="id_projeto">
+          <option value="">Selecione um projeto</option>
+          <!-- Opções serão carregadas dinamicamente -->
+        </select>
+
+        <label for="observacao">Observação:</label>
+        <textarea id="observacao"></textarea>
+
+        <label for="comprovante">Comprovante:</label>
+        <input type="file" id="comprovante" />
+
+        <button type="submit" class="submit-doacao">Salvar Doação</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../script/doacoes.js"></script>
+</body>
+</html>

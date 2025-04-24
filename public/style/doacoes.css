@@ -128,16 +128,25 @@ section {
     padding: 20px;
     border-radius: 8px;
     overflow-y: auto;
-  
 }
-  
-section h1 {
-    font-size: 1.8rem;
+
+#novaDoacaoBtn, .submit-doacao {
     margin-bottom: 20px;
-    color: #3f62a6;
+    padding: 10px 20px;
+    background-color: #3f62a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
-  
-.filter-voluntario {
+#novaDoacaoBtn:hover {
+    background-color: #43589d;
+}
+.submit-doacao:hover {
+    background-color: #43589d;
+}
+
+#filtroDoador {
     width: 400px;
     height: 40px;
     border: none;
@@ -149,58 +158,72 @@ section h1 {
     font: smaller;
     padding: 10px;
 }
-.filter-voluntario:focus {
+#filtroDoador:focus {
     border: 1px solid;
     border-color: #3f62a6;
 }
 
-.voluntario-card {
-    background-color: #f9f9f9;
-    height: 100px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px #3f62a6;
-    padding: 10px;
-    margin: 10px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr auto; /* Quatro colunas para os dados e uma para os botões */
-    align-items: center;
-    flex-wrap: wrap;
-    overflow-x: auto;
-}
-.voluntario-card::-webkit-scrollbar {
-  height: 7px;
-  cursor: pointer;
-}
-
-.name-voluntario {
-    color: #43589d;
-    font-weight: bold;
-}
-
-.voluntario-details {
-    display: contents; /* Permite o uso do grid */
-}
-
-.voluntario-buttons {
-    display: flex;
-    gap: 10px;
-    font-size: 100px;
-    color: #43589d;
-}
-
-.view-btn {
-    border: 1px solid #804cd4;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 40px;
+#filtroData {
     height: 40px;
-    color: #000;
-    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0 1px 2px #3f62a6;
     cursor: pointer;
 }
-.view-btn:hover {
-    background-color: #804cd4;
-    color: #fff;
+#filtroData:focus {
+    border: 1px solid;
+    border-color: #3f62a6;
+}
+
+section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #3f62a6;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table tr {
+    background-color: #f9f9f9;
+    height: 60px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px #3f62a6;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+table th {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+table td {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+  
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Botões Acão */
+.acoes {
+    width: 10%;
+    gap: 50px;
+    text-align: center;
 }
 
 .edit-btn {
@@ -248,19 +271,6 @@ section h1 {
     color: #fff;
 }
 
-#novoVoluntarioBtn {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #3f62a6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  #novoVoluntarioBtn:hover {
-    background-color: #43589d;
-  }
-
 .modal {
     display: none; 
     position: fixed; 
@@ -297,7 +307,7 @@ section h1 {
     cursor: pointer;
 }
 
-.form-voluntario {
+#modalForm {
     display: flex;
     flex-direction: column; 
     gap: 10px; 
@@ -307,7 +317,7 @@ section h1 {
     align-content: center;
 }
 
-.form-voluntario input {
+#tipo_doacao, #id_projeto, #observacao {
     background-color: #f3f8fd;
     height: 40px;
     border: none;
@@ -315,63 +325,21 @@ section h1 {
     padding: 10px;
     outline: none;
     box-shadow: 0 1px 2px #3f62a6;
-}
-.form-voluntario input[file] {
-  background-color: #000;
-  color: #000;
-}
-
-.btn-voluntario-editcreate {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #3f62a6;
-    color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
-.btn-voluntario-editcreate:hover {
-    background-color: #43589d;
+
+#modalForm input {
+    background-color: #f3f8fd;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+    box-shadow: 0 1px 2px #3f62a6;
+    cursor: pointer;
 }
-
-.voluntario-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 15px;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.voluntario-info div {
-    background-color: #f9f9f9;
-    padding: 8px 12px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-@media only screen and (max-width: 1055px) {
-  .voluntario-details {
-    display:flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .voluntario-card {
-    height: 200px;
-    width: 65dvh;
-    justify-content: space-between;
-  }
-  
-  .voluntario-buttons {
-    position: absolute;
-    display: flex;
-    margin-left: 50%;
-
-  }
-
-  .filter-voluntario {
-    width: 50%;
-  }
+#modalForm input[file] {
+  background-color: #000;
+  color: #000;
+  cursor: pointer;
 }
