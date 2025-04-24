@@ -111,26 +111,29 @@ document.addEventListener('DOMContentLoaded', function () {
     modalForm.onsubmit = async (e) => {
         e.preventDefault();
         const id = doacaoId.value;
-        const method = id ? 'PUT' : 'POST'; // Editar ou Criar
+        const method = id ? 'PUT' : 'POST';
         const endpoint = id ? `${baseURL}/doacoes/${id}` : `${baseURL}/doacoes`;
-
+    
+        // Converte vírgula para ponto antes de enviar para o banco
+        const valorCorrigido = valorDoacao.value.replace(',', '.');
+    
         const formData = new FormData();
         formData.append('doador', doador.value.trim());
         formData.append('data_doacao', dataDoacao.value);
         formData.append('tipo_doacao', tipoDoacao.value);
-        formData.append('valor_doacao', valorDoacao.value || null);
+        formData.append('valor_doacao', valorCorrigido || null);
         formData.append('id_projeto', idProjeto.value || null);
         formData.append('observacao', observacao.value.trim());
         formData.append('comprovante', comprovante.files[0] || null);
-
+    
         try {
             const response = await fetch(endpoint, {
                 method: method,
                 body: formData
             });
-
+    
             if (!response.ok) throw new Error('Erro ao salvar a doação.');
-
+    
             closeModal();
             fetchDoacoes(); // Atualizar lista
         } catch (error) {
