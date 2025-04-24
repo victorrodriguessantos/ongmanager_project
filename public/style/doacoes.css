@@ -176,6 +176,19 @@ section {
     border-color: #3f62a6;
 }
 
+#baixarRelatorioBtn {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #3f62a6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#baixarRelatorioBtn:hover {
+  background-color: #43589d;
+}
+
 section h1 {
     font-size: 1.8rem;
     margin-bottom: 20px;

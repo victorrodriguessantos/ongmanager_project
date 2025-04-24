@@ -199,6 +199,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Função para gerara relatorio
+
+document.getElementById('baixarRelatorioBtn').addEventListener('click', async () => {
+    const apiURL = 'http://localhost:8000/api/doacoes'; // 🔹 Definição dentro do escopo da função
+    console.log("BaseURL no relatório:", apiURL); // Debug para confirmar
+
+    try {
+        const response = await fetch(apiURL);
+        if (!response.ok) throw new Error('Erro ao carregar as doações.');
+        const doacoes = await response.json();
+
+        // Criar um array formatado para exportação
+        const dadosExcel = doacoes.map(doacao => ({
+            Doador: doacao.doador,
+            Data: new Date(doacao.data_doacao).toLocaleDateString(),
+            Valor: `R$ ${parseFloat(doacao.valor_doacao || 0).toFixed(2).replace('.', ',')}`,
+            Observação: doacao.observacao || '-',
+        }));
+
+        // Criar a planilha Excel
+        const ws = XLSX.utils.json_to_sheet(dadosExcel);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Doações");
+
+        // Baixar o arquivo
+        XLSX.writeFile(wb, "Relatorio_Doacoes.xlsx");
+    } catch (error) {
+        console.error(error.message);
+        alert('Erro ao gerar relatório.');
+    }
+});
+
 
 // Navegação
 

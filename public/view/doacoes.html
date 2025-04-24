@@ -50,6 +50,7 @@
                   <button id="novaDoacaoBtn"><i class="fi fi-rr-growth-chart-invest"></i> Adicionar Doação</button>
                   <input type="text" id="filtroDoador" placeholder="Buscar por Doador" />
                   <input type="date" id="filtroData" />
+                  <button id="baixarRelatorioBtn"><i class="fi fi-br-download"></i> Relatório</button>
                 </div>
             </div>
 
@@ -79,7 +80,7 @@
       <form id="modalForm">
         <input type="hidden" id="doacaoId" />
         <label for="doador">Doador:</label>
-        <input type="text" id="doador" required />
+        <input type="text" id="doador" placeholder="Nome do doador" />
         
         <label for="data_doacao">Data:</label>
         <input type="date" id="data_doacao" required />
@@ -110,6 +111,8 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
   <script src="../script/doacoes.js"></script>
+
 </body>
 </html>
