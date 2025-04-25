@@ -4,10 +4,10 @@
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css");
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css");
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css");
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css');
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css');
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css");
 
 * {
   margin: 0;
@@ -17,12 +17,12 @@
 
   ::-webkit-scrollbar {
     width: 5px;
-}
+  }
 
-::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background-color: #3f62a6;
     border-radius: 8px;
-}
+  }
 }
 
 main {
@@ -117,63 +117,64 @@ header {
 
 /* SECTION */
 section {
-    flex-direction: column;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f3f8fd;
-    width: calc(100% - 280px);
-    position: fixed;
-    margin-left: 260px;
-    height: 90vh;
-    margin-top: 90px;
-    padding: 20px;
-    border-radius: 8px;
-    overflow-y: auto;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f3f8fd;
+  width: calc(100% - 280px);
+  position: fixed;
+  margin-left: 260px;
+  height: 90vh;
+  margin-top: 90px;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-y: auto;
 }
 
-#novaDoacaoBtn, .submit-doacao {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #3f62a6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+#novaDoacaoBtn,
+.submit-doacao {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #3f62a6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 #novaDoacaoBtn:hover {
-    background-color: #43589d;
+  background-color: #43589d;
 }
 .submit-doacao:hover {
-    background-color: #43589d;
+  background-color: #43589d;
 }
 
 #filtroDoador {
-    width: 400px;
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    box-shadow: 0 1px 2px #3f62a6;
-    margin-left: 40px;
-    font-size: large;
-    font: smaller;
-    padding: 10px;
+  width: 400px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 1px 2px #3f62a6;
+  margin-left: 40px;
+  font-size: large;
+  font: smaller;
+  padding: 10px;
 }
 #filtroDoador:focus {
-    border: 1px solid;
-    border-color: #3f62a6;
+  border: 1px solid;
+  border-color: #3f62a6;
 }
 
 #filtroData {
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    box-shadow: 0 1px 2px #3f62a6;
-    cursor: pointer;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 1px 2px #3f62a6;
+  cursor: pointer;
 }
 #filtroData:focus {
-    border: 1px solid;
-    border-color: #3f62a6;
+  border: 1px solid;
+  border-color: #3f62a6;
 }
 
 #baixarRelatorioBtn {
@@ -190,164 +191,166 @@ section {
 }
 
 section h1 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #3f62a6;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #3f62a6;
 }
 
 table {
-    width: 100%;
-    margin-top: 20px;
-    border-radius: 8px;
-    border-collapse: collapse;
-    text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 8px;
+  border-collapse: collapse;
+  text-align: center;
 }
 
 table tr {
-    background-color: #f9f9f9;
-    height: 60px;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px #3f62a6;
-    padding: 10px;
-    margin: 10px 0;
+  background-color: #f9f9f9;
+  height: 60px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px #3f62a6;
+  padding: 10px;
+  margin: 10px 0;
 }
 
 table th {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
 }
 
 table td {
-    max-height: 40px;
-    padding: 10px;
-    border: 1px solid #ccc;
+  max-height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
-  
+
 tr:nth-child(odd) {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 /* Botões Acão */
 .acoes {
-    width: 15%;
+  width: 15%;
 }
 
 .edit-btn {
-    border: 1px solid #4caf50;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    color: #000;
-    font-size: 15px;
-    cursor: pointer;
+  border: 1px solid #4caf50;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: #000;
+  font-size: 15px;
+  cursor: pointer;
 }
 .edit-btn:hover {
-    background-color: #30ad34;
-    color: #fff;
+  background-color: #30ad34;
+  color: #fff;
 }
 
 .delete-btn {
-    border: 1px solid #f52314;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    color: #000;
-    font-size: 15px;
-    cursor: pointer;
+  border: 1px solid #f52314;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: #000;
+  font-size: 15px;
+  cursor: pointer;
 }
 .delete-btn:hover {
-    background-color: #f52314;
-    color: #fff;
+  background-color: #f52314;
+  color: #fff;
 }
 
 .download-btn {
-    border: 1px solid #646464;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    color: #000;
-    font-size: 15px;
-    cursor: pointer;
+  border: 1px solid #646464;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: #000;
+  font-size: 15px;
+  cursor: pointer;
 }
 .download-btn:hover {
-    background-color: #646464;
-    color: #fff;
+  background-color: #646464;
+  color: #fff;
 }
 
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 60px auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 30%;
-    border-radius: 8px;
+  background-color: #fefefe;
+  margin: 60px auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 8px;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #modalForm {
-    display: flex;
-    flex-direction: column; 
-    gap: 10px; 
-    padding: 15px;
-    font-size: 16px;
-    width: 100%;
-    align-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  font-size: 16px;
+  width: 100%;
+  align-content: center;
 }
 
-#tipo_doacao, #id_projeto, #observacao {
-    background-color: #f3f8fd;
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    outline: none;
-    box-shadow: 0 1px 2px #3f62a6;
-    cursor: pointer;
+#tipo_doacao,
+#id_projeto,
+#observacao {
+  background-color: #f3f8fd;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  outline: none;
+  box-shadow: 0 1px 2px #3f62a6;
+  cursor: pointer;
 }
 
 #modalForm input {
-    background-color: #f3f8fd;
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    outline: none;
-    box-shadow: 0 1px 2px #3f62a6;
-    cursor: pointer;
+  background-color: #f3f8fd;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  outline: none;
+  box-shadow: 0 1px 2px #3f62a6;
+  cursor: pointer;
 }
 #modalForm input[file] {
   background-color: #000;

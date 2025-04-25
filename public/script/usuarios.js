@@ -23,7 +23,7 @@ async function fetchUsers() {
 
     // Limpar o container e exibir os usuários
     usersContainer.innerHTML = "";
-    users.forEach(user => addUserCard(user));
+    users.forEach((user) => addUserCard(user));
   } catch (error) {
     console.error("Erro ao buscar usuários:", error);
   }
@@ -83,7 +83,11 @@ userForm.addEventListener("submit", async (e) => {
       const response = await fetch(`${apiBaseUrl}/${editingUserId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name_user: name, email_user: email, password_user: password }),
+        body: JSON.stringify({
+          name_user: name,
+          email_user: email,
+          password_user: password,
+        }),
       });
 
       if (response.ok) {
@@ -97,7 +101,11 @@ userForm.addEventListener("submit", async (e) => {
       const response = await fetch(apiBaseUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name_user: name, email_user: email, password_user: password }),
+        body: JSON.stringify({
+          name_user: name,
+          email_user: email,
+          password_user: password,
+        }),
       });
 
       if (response.ok) {
@@ -119,7 +127,9 @@ async function deleteUser(userId) {
   if (!confirm("Deseja realmente excluir este usuário?")) return;
 
   try {
-    const response = await fetch(`${apiBaseUrl}/${userId}`, { method: "DELETE" });
+    const response = await fetch(`${apiBaseUrl}/${userId}`, {
+      method: "DELETE",
+    });
 
     if (response.ok) {
       alert("Usuário excluído com sucesso!");
@@ -134,13 +144,18 @@ async function deleteUser(userId) {
 
 // Navegação
 
-document.getElementById("dashboard").addEventListener("click", function() { 
-  window.location.href = "/dashboard"; }); 
-document.getElementById("doacoes").addEventListener("click", function() { 
-  window.location.href = "/doacoes"; }); 
-document.getElementById("projetos").addEventListener("click", function() { 
-  window.location.href = "/projetos"; }); 
-document.getElementById("voluntarios").addEventListener("click", function() { 
-  window.location.href = "/voluntarios"; }); 
-document.getElementById("usuarios").addEventListener("click", function() { 
-  window.location.href = "/usuarios"; });
+document.getElementById("dashboard").addEventListener("click", function () {
+  window.location.href = "/dashboard";
+});
+document.getElementById("doacoes").addEventListener("click", function () {
+  window.location.href = "/doacoes";
+});
+document.getElementById("projetos").addEventListener("click", function () {
+  window.location.href = "/projetos";
+});
+document.getElementById("voluntarios").addEventListener("click", function () {
+  window.location.href = "/voluntarios";
+});
+document.getElementById("usuarios").addEventListener("click", function () {
+  window.location.href = "/usuarios";
+});

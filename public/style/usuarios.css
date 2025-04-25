@@ -4,7 +4,7 @@
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css");
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css");
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css");
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css');
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css");
 
 * {
   margin: 0;
@@ -14,12 +14,12 @@
 
   ::-webkit-scrollbar {
     width: 5px;
-}
+  }
 
-::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background-color: #3f62a6;
     border-radius: 8px;
-}
+  }
 }
 
 main {
@@ -125,7 +125,6 @@ section {
   padding: 20px;
   border-radius: 8px;
   overflow-y: auto;
-
 }
 
 section h1 {
@@ -139,7 +138,6 @@ section h1 {
 .container {
   margin: 20px auto;
   text-align: center;
-
 }
 
 .icon-user i {

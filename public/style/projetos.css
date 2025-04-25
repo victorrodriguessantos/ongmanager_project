@@ -4,10 +4,10 @@
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css");
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css");
 @import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css");
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css');
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css');
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
-@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css");
 
 * {
   margin: 0;
@@ -17,12 +17,12 @@
 
   ::-webkit-scrollbar {
     width: 5px;
-}
+  }
 
-::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background-color: #3f62a6;
     border-radius: 8px;
-}
+  }
 }
 
 main {
@@ -117,41 +117,39 @@ header {
 
 /* SECTION */
 section {
-    flex-direction: column;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f3f8fd;
-    width: calc(100% - 280px);
-    position: fixed;
-    height: 90vh;
-    margin-top: 15px;
-    padding: 20px;
-    border-radius: 8px;
-    overflow-y: auto;
-  
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f3f8fd;
+  width: calc(100% - 280px);
+  position: fixed;
+  height: 90vh;
+  margin-top: 15px;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-y: auto;
 }
-  
+
 section h1 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #3f62a6;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #3f62a6;
 }
-  
+
 .filter-voluntario {
-    width: 400px;
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    box-shadow: 0 1px 2px #3f62a6;
-    margin-left: 40px;
-    font-size: large;
-    font: smaller;
-    padding: 10px;
+  width: 400px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 1px 2px #3f62a6;
+  margin-left: 40px;
+  font-size: large;
+  font: smaller;
+  padding: 10px;
 }
 .filter-voluntario:focus {
-    border: 1px solid;
-    border-color: #3f62a6;
-
+  border: 1px solid;
+  border-color: #3f62a6;
 }
 
 #baixarRelatorioBtn {
@@ -168,117 +166,118 @@ section h1 {
 }
 
 #ProjetoBtn {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #3f62a6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #3f62a6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #ProjetoBtn:hover {
-    background-color: #43589d;
+  background-color: #43589d;
 }
 
 .projeto-card {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 15px;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 10px;
-    float: left;
-    width: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+  float: left;
+  width: 25%;
 }
 
 .projeto-card div {
-    width: 100%;
-    background-color: #f9f9f9;
-    padding: 8px 12px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px #3f62a6;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #3f62a6;
 }
 
 .name-projeto {
-    color: #43589d;
-    font-weight: bold;
-    font-size: 20px;
-    margin-left: 10px;
+  color: #43589d;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 .edit-btn {
-    border: 1px solid #4caf50;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    color: #000;
-    font-size: 15px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 37%;
+  border: 1px solid #4caf50;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: #000;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 37%;
 }
 .edit-btn:hover {
-    background-color: #30ad34;
-    color: #fff;
+  background-color: #30ad34;
+  color: #fff;
 }
 
 .delete-btn {
-    border: 1px solid #f52314;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    color: #000;
-    font-size: 15px;
-    cursor: pointer;
-    margin-top: 10px;
+  border: 1px solid #f52314;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: #000;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 .delete-btn:hover {
-    background-color: #f52314;
-    color: #fff;
+  background-color: #f52314;
+  color: #fff;
 }
 
-
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 60px auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 30%;
-    border-radius: 8px;
+  background-color: #fefefe;
+  margin: 60px auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 8px;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-form input, textarea, select {
+form input,
+textarea,
+select {
   background-color: #f3f8fd;
   border: none;
   box-shadow: 0 1px 2px #3f62a6;

@@ -1,101 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    rel="stylesheet"
-    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css"
-  />
-  <link rel="stylesheet" href="../style/projetos.css" />
-  <title>ONGManager</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css"
+    />
+    <link rel="stylesheet" href="../style/projetos.css" />
+    <title>ONGManager</title>
+  </head>
 
-<body>
-  <main>
-    <div class="menu-container">
-      <sidebar>
-        <ul>
-          <li id="dashboard">Dashboard <i class="fi fi-rr-apps"></i></li>
-          <li id="doacoes">Doações <i class="fi fi-rr-growth-chart-invest"></i></li>
-          <li id="projetos" class="active">Projetos <i class="fi fi-rr-calendar"></i></li>
-          <li id="voluntarios">Voluntários <i class="fi fi-rs-builder"></i></li>
-          <li id="usuarios">Usuários <i class="fi fi-ss-users-alt"></i></li>
-        </ul>
-      </sidebar>
+  <body>
+    <main>
+      <div class="menu-container">
+        <sidebar>
+          <ul>
+            <li id="dashboard">Dashboard <i class="fi fi-rr-apps"></i></li>
+            <li id="doacoes">
+              Doações <i class="fi fi-rr-growth-chart-invest"></i>
+            </li>
+            <li id="projetos" class="active">
+              Projetos <i class="fi fi-rr-calendar"></i>
+            </li>
+            <li id="voluntarios">
+              Voluntários <i class="fi fi-rs-builder"></i>
+            </li>
+            <li id="usuarios">Usuários <i class="fi fi-ss-users-alt"></i></li>
+          </ul>
+        </sidebar>
 
-      <div class="main-content">
-        <header>
-          <div class="header-left">
-            <h1>ONGManager</h1>
-          </div>
-
-          <div class="header-right">
-            <div class="mode-dark">
-              <i class="fi fi-ss-moon"></i>
+        <div class="main-content">
+          <header>
+            <div class="header-left">
+              <h1>ONGManager</h1>
             </div>
-            <div class="notifications">
-              <i class="fi fi-rr-bell"></i>
-            </div>
-            <div class="logout">
-              <i class="fi fi-ss-leave"></i>
-            </div>
-            <span class="user-name">Victor Rodrigues</span>
-          </div>
-        </header>
 
-        <section>
-          <h1>Gerenciar Projetos</h1>
-          <button id="ProjetoBtn"> <i class="fi fi-bs-diagram-project"></i> Criar Novo Projeto</button>
-          <input class="filter-voluntario" type="text" id="filtroNome" placeholder="Buscar Projeto" />
-          <button id="baixarRelatorioBtn"><i class="fi fi-br-download"></i> Relatório</button>
+            <div class="header-right">
+              <div class="mode-dark">
+                <i class="fi fi-ss-moon"></i>
+              </div>
+              <div class="notifications">
+                <i class="fi fi-rr-bell"></i>
+              </div>
+              <div class="logout">
+                <i class="fi fi-ss-leave"></i>
+              </div>
+              <span class="user-name">Victor Rodrigues</span>
+            </div>
+          </header>
 
-          <!-- Lista de Projetos -->
-          <div id="projetosContainer"></div>
-        </section>
+          <section>
+            <h1>Gerenciar Projetos</h1>
+            <button id="ProjetoBtn">
+              <i class="fi fi-bs-diagram-project"></i> Criar Novo Projeto
+            </button>
+            <input
+              class="filter-voluntario"
+              type="text"
+              id="filtroNome"
+              placeholder="Buscar Projeto"
+            />
+            <button id="baixarRelatorioBtn">
+              <i class="fi fi-br-download"></i> Relatório
+            </button>
+
+            <!-- Lista de Projetos -->
+            <div id="projetosContainer"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal de Cadastro e Edição de Projetos -->
+    <div id="modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span id="modalCloseBtn" class="close">&times;</span>
+        <h2 id="modalTitle">Cadastro de Projeto</h2>
+        <hr />
+        <br />
+        <form id="modalForm">
+          <input type="hidden" id="projetoId" />
+          <label for="name_projeto">Nome:</label>
+          <input type="text" id="name_projeto" placeholder="Nome do Projeto" />
+          <label for="descricao">Descrição:</label>
+          <textarea
+            id="descricao"
+            placeholder="Descrição do Projeto"
+            required
+          ></textarea>
+          <label for="meta_arrecadacao">Meta:</label>
+          <input
+            type="number"
+            id="meta_arrecadacao"
+            placeholder="Meta de Arrecadação"
+            required
+          />
+          <label for="status_projeto">Status do Projeto:</label>
+          <select id="status_projeto" required>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>
+            <option value="Cancelado">Cancelado</option>
+          </select>
+          <button type="submit">Salvar Projeto</button>
+        </form>
       </div>
     </div>
-  </main>
 
-  <!-- Modal de Cadastro e Edição de Projetos -->
-  <div id="modal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span id="modalCloseBtn" class="close">&times;</span>
-      <h2 id="modalTitle">Cadastro de Projeto</h2>
-      <hr>
-      <br>
-      <form id="modalForm">
-        <input type="hidden" id="projetoId" />
-        <label for="name_projeto">Nome:</label>
-        <input type="text" id="name_projeto" placeholder="Nome do Projeto"/>
-        <label for="descricao">Descrição:</label>
-        <textarea id="descricao" placeholder="Descrição do Projeto" required></textarea>
-        <label for="meta_arrecadacao">Meta:</label>
-        <input type="number" id="meta_arrecadacao" placeholder="Meta de Arrecadação" required />
-        <label for="status_projeto">Status do Projeto:</label>
-        <select id="status_projeto" required>
-          <option value="Em andamento">Em andamento</option>
-          <option value="Concluído">Concluído</option>
-          <option value="Cancelado">Cancelado</option>
-        </select>
-        <button type="submit">Salvar Projeto</button>
-      </form>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
-  <script src="../script/projetos.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="../script/projetos.js"></script>
+  </body>
 </html>
