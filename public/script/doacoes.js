@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Função para gerara relatorio
+// Função para gerar relatorio
 
 document.getElementById('baixarRelatorioBtn').addEventListener('click', async () => {
     const apiURL = 'http://localhost:8000/api/doacoes'; // 🔹 Definição dentro do escopo da função

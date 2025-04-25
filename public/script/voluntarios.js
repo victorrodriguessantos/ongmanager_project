@@ -169,6 +169,40 @@ document.addEventListener('DOMContentLoaded', function () {
   
     fetchVoluntarios();
   });
+
+  // Função para gerar relatorio
+
+  document.getElementById('baixarRelatorioBtn').addEventListener('click', async () => {
+    try {
+        const apiURL = 'http://localhost:8000/api/voluntarios'; // 🔹 Definição dentro do escopo da função
+        const response = await fetch(apiURL);
+        if (!response.ok) throw new Error('Erro ao carregar os voluntários.');
+        const voluntarios = await response.json();
+
+        // Criar um array formatado para exportação
+        const dadosExcel = voluntarios.map(voluntario => ({
+            Nome: voluntario.name_voluntario,
+            CPF: voluntario.cpf_voluntario,
+            Email: voluntario.email_voluntario,
+            Telefone: voluntario.phone_voluntario,
+            Endereço: voluntario.endereco_voluntario,
+            Observação: voluntario.observacao_voluntario || '-',
+            Data_Nascimento: new Date(voluntario.data_nascimento).toLocaleDateString(),
+            Preferência_Profissional: voluntario.preferencia_profissional,
+        }));
+
+        // Criar a planilha Excel
+        const ws = XLSX.utils.json_to_sheet(dadosExcel);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Voluntários");
+
+        // Baixar o arquivo
+        XLSX.writeFile(wb, "Relatorio_Voluntarios.xlsx");
+    } catch (error) {
+        console.error(error.message);
+        alert('Erro ao gerar relatório.');
+    }
+});
   
   // Navegação
 
