@@ -154,6 +154,19 @@ section h1 {
 
 }
 
+#baixarRelatorioBtn {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #3f62a6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#baixarRelatorioBtn:hover {
+  background-color: #43589d;
+}
+
 #ProjetoBtn {
     margin-bottom: 20px;
     padding: 10px 20px;

@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('baixarRelatorioBtn').addEventListener('click', async () => {
     try {
-        const apiURL = 'http://localhost:8000/api/voluntarios'; // 🔹 Definição dentro do escopo da função
+        const apiURL = 'http://localhost:8000/api/voluntarios';
         const response = await fetch(apiURL);
         if (!response.ok) throw new Error('Erro ao carregar os voluntários.');
         const voluntarios = await response.json();

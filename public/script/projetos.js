@@ -155,6 +155,44 @@ document.addEventListener('DOMContentLoaded', function () {
   fetchProjetos();
 });
 
+
+    document.getElementById('baixarRelatorioBtn').addEventListener('click', async () => {
+        try {
+            const apiURL = 'http://localhost:8000/api';
+            const response = await fetch(`${apiURL}/projetos`);
+    
+            // Verifica se a resposta é realmente JSON
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+                throw new Error("Resposta da API não é um JSON válido.");
+            }
+    
+            if (!response.ok) throw new Error(`Erro na requisição: ${response.status}`);
+            
+            const projetos = await response.json();
+    
+            // Criar um array formatado para exportação
+            const dadosExcel = projetos.map(projeto => ({
+                Nome: projeto.name_projeto,
+                Descrição: projeto.descricao,
+                Meta_Arrecadação: `R$ ${parseFloat(projeto.meta_arrecadacao).toFixed(2).replace('.', ',')}`,
+                Valor_Arrecadado: `R$ ${parseFloat(projeto.valor_arrecadado || 0).toFixed(2).replace('.', ',')}`,
+                Status: projeto.status_projeto,
+            }));
+    
+            // Criar a planilha Excel
+            const ws = XLSX.utils.json_to_sheet(dadosExcel);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Projetos");
+    
+            // Baixar o arquivo
+            XLSX.writeFile(wb, "Relatorio_Projetos.xlsx");
+        } catch (error) {
+            console.error(error.message);
+            alert('Erro ao gerar relatório: ' + error.message);
+        }
+    });
+
 // Navegação
 
 document.getElementById("dashboard").addEventListener("click", function() { 
