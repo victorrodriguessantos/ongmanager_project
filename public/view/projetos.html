@@ -103,9 +103,10 @@
           ></textarea>
           <label for="meta_arrecadacao">Meta:</label>
           <input
-            type="number"
+            type="text"
             id="meta_arrecadacao"
             placeholder="Meta de Arrecadação"
+            pattern="[0-9]+([,\\.][0-9]+)?"
             required
           />
           <label for="status_projeto">Status do Projeto:</label>
