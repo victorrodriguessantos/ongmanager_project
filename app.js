@@ -5,6 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const multer = require('multer');
 const upload = multer({ dest: 'bd/uploads/' });
+const bcrypt = require("bcrypt");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +19,55 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
     exposedHeaders: ['Content-Disposition'], // Permite que o cliente veja o cabeçalho Content-Disposition
 }));
+
+// Controle de Sessão
+const session = require("express-session");
+
+app.use(session({
+    secret: "seuSegredoSuperSeguro", // 🔹 Chave secreta para criptografar a sessão
+    resave: false, // 🔹 Evita salvar a sessão se não for modificada
+    saveUninitialized: false, // 🔹 Não cria sessões para usuários que não estão logados
+    cookie: { secure: false, httpOnly: true } // 🔹 Configuração básica de cookies
+}));
+
+app.post("/login", async (req, res) => {
+    const { email_user, password_user } = req.body;
+
+    const query = "SELECT id_user, password_user FROM tb_usuarios WHERE email_user = ?";
+    mysql.query(query, [email_user], async (err, results) => {
+        if (err) return res.status(500).json({ error: "Erro ao acessar o banco de dados" });
+
+        console.log("Resultado da consulta:", results); // 🔹 Debug para verificar a resposta do banco
+
+        if (results.length === 0) {
+            return res.status(401).json({ error: "Usuário ou senha incorretos!" });
+        }
+
+        req.session.userId = results[0].id_user; // 🔹 Agora salva o ID corretamente na sessão
+        res.json({ success: true, message: "Login bem-sucedido!" });
+    });
+});
+
+// Verificação de Sessão
+const verificarAutenticacao = (req, res, next) => {
+    if (!req.session.userId) {
+        return res.redirect("/"); // 🔹 Se não estiver logado, redireciona para o login
+    }
+    next(); // 🔹 Caso contrário, permite o acesso
+};
+
+// Rota para Deslogar
+app.get("/logout", (req, res) => {
+    console.log("Rota de logout acessada!"); // 🔹 Para verificar no console do servidor
+
+    req.session.destroy((err) => {
+        if (err) {
+            console.error("Erro ao destruir sessão:", err);
+            return res.status(500).json({ error: "Erro ao sair do sistema." });
+        }
+        res.redirect("/"); // 🔹 Redireciona para a tela de login
+    });
+});
 
 const usuarios = require('./Routers/usuarios');
 app.use('/', usuarios);
@@ -51,37 +101,32 @@ app.post('/upload', upload.single('curriculo_voluntario'), (req, res) => {
 });
 
 
-
-app.get('/api/usuarios', (req, res) => {
-    res.json({ message: 'Dados dos usuários' });
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "view", "login.html"));
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'view', 'login.html'));
+app.get("/usuarios", verificarAutenticacao, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "view", "usuarios.html"));
 });
 
-app.get('/usuarios', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'view', 'usuarios.html'));
+app.get("/voluntarios", verificarAutenticacao, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "view", "voluntarios.html"));
 });
 
-app.get('/voluntarios', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'view', 'voluntarios.html'));
+app.get("/projetos", verificarAutenticacao, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "view", "projetos.html"));
 });
 
-app.get('/projetos', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'view', 'projetos.html'));
+app.get("/doacoes", verificarAutenticacao, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "view", "doacoes.html"));
 });
 
-app.get('/doacoes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'view', 'doacoes.html'));
+app.get("/agenda", verificarAutenticacao, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "view", "agenda.html"));
 });
 
-app.get('/agenda', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'view', 'agenda.html'));
-});
-
-app.get('/dashboard', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'view', 'dashboard.html'));
+app.get("/dashboard", verificarAutenticacao, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "view", "dashboard.html"));
 });
 
 // Rodar servidor

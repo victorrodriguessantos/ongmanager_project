@@ -1,29 +1,53 @@
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const email = document.getElementById("email").value.trim(); // 🔹 Removendo espaços extras
+  const password = document.getElementById("password").value.trim();
+
+  const loginButton = document.querySelector("#loginForm button"); 
+  loginButton.disabled = true; // 🔹 Evita múltiplos cliques durante o envio
 
   try {
-    const response = await fetch("/login", {
-      // Verifique se a rota está correta
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email_user: email, password_user: password }),
-    });
+      const response = await fetch("/login", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email_user: email, password_user: password }),
+      });
 
-    const result = await response.json();
+      if (!response.ok) throw new Error("Usuário ou senha inválidos.");
 
-    if (response.ok) {
-      // Redirecionar para a página de usuários
-      window.location.href = "/usuarios";
+      const result = await response.json();
+
+      if (response.ok && result) {
+        window.location.replace("/dashboard"); // 🔹 `replace()` pode forçar o redirecionamento
     } else {
-      // Exibir erro
-      alert("Usuario ou Senha invalida, por favor tente novamente.");
+        throw new Error(result.message || "Erro ao autenticar.");
     }
+
   } catch (err) {
-    console.error("Erro:", err);
+      console.error("Erro:", err);
+      alert(err.message); // 🔹 Agora o erro exibe a mensagem correta
+
+  } finally {
+      loginButton.disabled = false; // 🔹 Reabilita o botão após a tentativa
+  }
+});
+
+
+
+// Deslogar
+document.querySelector(".logout").addEventListener("click", async () => {
+  try {
+      const response = await fetch("http://localhost:8000/logout", { method: "GET" });
+
+      if (response.ok) {
+          window.location.href = "/"; // 🔹 Redireciona para a tela de login
+      } else {
+          alert("Erro ao deslogar. Tente novamente.");
+      }
+  } catch (error) {
+      console.error("Erro ao fazer logout:", error);
   }
 });
