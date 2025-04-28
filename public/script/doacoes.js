@@ -268,3 +268,18 @@ document.getElementById("voluntarios").addEventListener("click", function () {
 document.getElementById("usuarios").addEventListener("click", function () {
   window.location.href = "/usuarios";
 });
+
+// Deslogar
+document.querySelector(".logout").addEventListener("click", async () => {
+  try {
+      const response = await fetch("http://localhost:8000/logout", { method: "GET" });
+
+      if (response.ok) {
+          window.location.href = "/"; // 🔹 Redireciona para a tela de login
+      } else {
+          alert("Erro ao deslogar. Tente novamente.");
+      }
+  } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+  }
+});

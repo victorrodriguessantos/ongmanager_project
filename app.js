@@ -24,7 +24,7 @@ app.use(cors({
 const session = require("express-session");
 
 app.use(session({
-    secret: "seuSegredoSuperSeguro", // 🔹 Chave secreta para criptografar a sessão
+    secret: "4A2RwZqnTY3AAH1s5OqfOvLdx0aY2L", // 🔹 Chave secreta para criptografar a sessão
     resave: false, // 🔹 Evita salvar a sessão se não for modificada
     saveUninitialized: false, // 🔹 Não cria sessões para usuários que não estão logados
     cookie: { secure: false, httpOnly: true } // 🔹 Configuração básica de cookies

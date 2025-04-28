@@ -101,6 +101,10 @@ header {
   font-size: 1.5rem;
 }
 
+.header-right .logout {
+  color: #FF0000;
+}
+
 .header-right .mode-dark:hover,
 .notifications:hover,
 .logout:hover {
