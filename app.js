@@ -33,17 +33,17 @@ app.use(session({
 app.post("/login", async (req, res) => {
     const { email_user, password_user } = req.body;
 
-    const query = "SELECT id_user, password_user FROM tb_usuarios WHERE email_user = ?";
+    const query = "SELECT id_user, name_user FROM tb_usuarios WHERE email_user = ?";
     mysql.query(query, [email_user], async (err, results) => {
         if (err) return res.status(500).json({ error: "Erro ao acessar o banco de dados" });
-
-        console.log("Resultado da consulta:", results); // 🔹 Debug para verificar a resposta do banco
 
         if (results.length === 0) {
             return res.status(401).json({ error: "Usuário ou senha incorretos!" });
         }
 
-        req.session.userId = results[0].id_user; // 🔹 Agora salva o ID corretamente na sessão
+        req.session.userId = results[0].id_user;  
+        req.session.userName = results[0].name_user; // 🔹 Agora salva o nome do usuário na sessão
+
         res.json({ success: true, message: "Login bem-sucedido!" });
     });
 });
@@ -100,6 +100,13 @@ app.post('/upload', upload.single('curriculo_voluntario'), (req, res) => {
     res.json({ filePath }); // Retorna o caminho do arquivo
 });
 
+app.get("/user-info", (req, res) => {
+    if (!req.session.userId) {
+        return res.status(401).json({ error: "Usuário não autenticado." });
+    }
+    
+    res.json({ name: req.session.userName });
+});
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "view", "login.html"));

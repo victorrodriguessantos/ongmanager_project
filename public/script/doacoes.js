@@ -269,6 +269,22 @@ document.getElementById("usuarios").addEventListener("click", function () {
   window.location.href = "/usuarios";
 });
 
+// Troca do user-name dinamicamente
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+      const response = await fetch("http://localhost:8000/user-info");
+      const data = await response.json();
+
+      if (response.ok) {
+          document.querySelector(".user-name").innerText = data.name; // 🔹 Exibe o nome do usuário
+      } else {
+          console.error("Erro ao obter usuário:", data.error);
+      }
+  } catch (error) {
+      console.error("Erro ao buscar informações do usuário:", error);
+  }
+});
+
 // Deslogar
 document.querySelector(".logout").addEventListener("click", async () => {
   try {
