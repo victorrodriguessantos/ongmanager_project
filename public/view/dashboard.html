@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css"
+    />
+    <link rel="stylesheet" href="../style/dashboard.css" />
+
+    <title>ONGManager</title>
+  </head>
+  <body>
+    <main>
+      <div class="menu-container">
+        <sidebar>
+          <ul>
+            <li id="dashboard">Dashboard <i class="fi fi-rr-apps"></i></li>
+            <li id="doacoes">
+              Doações <i class="fi fi-rr-growth-chart-invest"></i>
+            </li>
+            <li id="projetos">Projetos <i class="fi fi-rr-calendar"></i></li>
+            <li id="voluntarios">
+              Voluntários <i class="fi fi-rs-builder"></i>
+            </li>
+            <li id="usuarios">Usuários <i class="fi fi-ss-users-alt"></i></li>
+          </ul>
+        </sidebar>
+
+        <div class="main-content">
+          <header>
+            <div class="header-left">
+              <h1>ONGManager</h1>
+            </div>
+
+            <div class="header-right">
+              <div class="mode-dark">
+                <i class="fi fi-ss-moon"></i>
+              </div>
+              <div class="notifications">
+                <i class="fi fi-rr-bell"></i>
+              </div>
+              <div class="logout">
+                <i class="fi fi-ss-leave"></i>
+              </div>
+              <span class="user-name">Victor Rodrigues</span>
+            </div>
+          </header>
+        </div>
+      </div>
+
+      <section>
+
+        <div class="dashboard-cards">
+          <div class="card">
+              <h3>Total de Doações</h3>
+              <span id="totalDoacoes">0</span>
+          </div>
+          <div class="card">
+              <h3>Doações do Dia</h3>
+              <span id="doacoesDia">0</span>
+          </div>
+          <div class="card">
+              <h3>Doações na Semana</h3>
+              <span id="doacoesSemana">0</span>
+          </div>
+          <div class="card">
+              <h3>Doações no Mês</h3>
+              <span id="doacoesMes">0</span>
+          </div>
+          <div class="card">
+              <h3>Total de Voluntários</h3>
+              <span id="totalVoluntarios">0</span>
+          </div>
+          
+      </div>
+
+      <div class="dashboard-values">
+        <div class="card">
+            <h3>Valor Total de Doações</h3>
+            <span id="valorTotalDoacoes">R$ 0,00</span>
+        </div>
+        <div class="card">
+            <h3>Valor Total de Doações do Dia</h3>
+            <span id="valorDoacoesDia">R$ 0,00</span>
+        </div>
+        <div class="card">
+            <h3>Valor Total de Doações na Semana</h3>
+            <span id="valorDoacoesSemana">R$ 0,00</span>
+        </div>
+        <div class="card">
+            <h3>Valor Total de Doações no Mês</h3>
+            <span id="valorDoacoesMes">R$ 0,00</span>
+        </div>
+    </div>
+    
+    <div class="dashboard-graphics">
+        <canvas id="graficoDoacoes"></canvas>
+        <canvas id="graficoValores"></canvas>
+    </div>
+
+      </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        console.log("Chart.js carregado:", typeof Chart);
+    </script>
+    <script src="../script/dashboard.js"></script>
+  </body>
+</html>

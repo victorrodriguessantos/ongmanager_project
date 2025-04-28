@@ -76,6 +76,14 @@ app.get('/doacoes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'view', 'doacoes.html'));
 });
 
+app.get('/agenda', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'view', 'agenda.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'view', 'dashboard.html'));
+});
+
 // Rodar servidor
 app.listen(8000, () => {
     console.log("Servidor rodando http://localhost:8000/");
