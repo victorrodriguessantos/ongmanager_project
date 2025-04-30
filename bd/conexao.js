@@ -11,26 +11,12 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE
 });
 
-connection.connect ( function (err) {
-    try {
-        console.log("Conexão com o Banco efetuada com sucesso!")
-    } catch {
-        console.error("Erro: Conexão com o Banco recusada: ", error)
+connection.connect(function (err) {
+    if (err) {
+        console.error("Erro: Conexão com o Banco recusada: ", err.message);
+    } else {
+        console.log("Conexão com o Banco efetuada com sucesso!");
     }
 });
-
-
- /* Testando a consulta com o banco
-
-connection.query("SELECT * FROM tb_usuarios", function (error, rows, fields) {
-    if (!error) {
-        console.log("Resultado: ", rows);
-    } else {
-        console.log("Consulta não realizada", error)
-    }
-
-}); 
-
-*/
 
 module.exports = connection;

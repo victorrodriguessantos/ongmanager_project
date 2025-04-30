@@ -38,6 +38,9 @@ npm install dotenv --save
 ```bash
 npm install cors
 ```
+```bash
+npm install express-session
+```
 
 ### 5° - Instalar as dependencias de importação e manipulação de arquivo:
 
